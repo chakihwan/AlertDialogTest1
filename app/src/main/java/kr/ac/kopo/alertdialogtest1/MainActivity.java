@@ -34,14 +34,24 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String[] foodItems = {"떡볶이", "무침만두", "순대"};
                 final int[] imgRes = {R.drawable.ddok,R.drawable.muchimmandu,R.drawable.sundae};
+                final boolean[] checkArray = {true,false,false};
                 AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
                 dlg.setTitle("인공지능소프트웨어과 공지사항");
 
-                dlg.setSingleChoiceItems(foodItems,0, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        btn1.setText(foodItems[which]);
-                        imgFood.setImageResource(imgRes[which]);
+                dlg.setMultiChoiceItems(foodItems, checkArray, new DialogInterface.OnMultiChoiceClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                                if (isChecked){
+                                    btn1.setText(foodItems[which]);
+                                    imgFood.setImageResource(imgRes[which]);
+                                }
+
+//
+//                dlg.setSingleChoiceItems(foodItems,0, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        btn1.setText(foodItems[which]);
+//                        imgFood.setImageResource(imgRes[which]);
 
 //                dlg.setItems(foodItems, new DialogInterface.OnClickListener() {
 //                    @Override
@@ -59,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 //                                imgFood.setImageResource(R.drawable.sundae);
 //                                break;
 //                        }
-                    }
+            }
                 });
 //                dlg.setMessage("우리과 학생이 사용해야 한다고 친절하게 양해를 구하면 됩니다.");
                 dlg.setIcon(R.drawable.guineapig);
