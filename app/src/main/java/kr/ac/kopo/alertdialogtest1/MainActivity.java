@@ -36,11 +36,18 @@ public class MainActivity extends AppCompatActivity {
                 final int[] imgRes = {R.drawable.ddok,R.drawable.muchimmandu,R.drawable.sundae};
                 AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
                 dlg.setTitle("인공지능소프트웨어과 공지사항");
-                dlg.setItems(foodItems, new DialogInterface.OnClickListener() {
+
+                dlg.setSingleChoiceItems(foodItems,0, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         btn1.setText(foodItems[which]);
                         imgFood.setImageResource(imgRes[which]);
+
+//                dlg.setItems(foodItems, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        btn1.setText(foodItems[which]);
+//                        imgFood.setImageResource(imgRes[which]);
 //                        switch (which){
 //                            case 0:
 //                                imgFood.setImageResource(R.drawable.ddok);
